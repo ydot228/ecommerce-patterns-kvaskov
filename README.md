@@ -13,8 +13,6 @@
   - **Observer**, **Strategy**
   - **Factory**, **Singleton**
   - **Producer-Consumer** (очередь задач)
-- `docs` — технический проект (DOCX + PDF).
-- `presentation` — презентация (PPTX).
 
 ## Быстрый старт (Node.js 18+)
 
