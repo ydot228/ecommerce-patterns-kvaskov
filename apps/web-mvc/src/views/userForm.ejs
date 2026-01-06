@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title %></title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      label { display: block; margin-top: 12px; }
+      input { width: 420px; max-width: 100%; padding: 8px; }
+      button { margin-top: 16px; padding: 8px 12px; }
+      .error { color: #b00020; margin-top: 12px; }
+      .top { max-width: 520px; display: flex; justify-content: space-between; align-items: center; }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <h1><%= title %></h1>
+      <a href="/users">Назад</a>
+    </div>
+
+    <% const isEdit = user && user.id; %>
+    <form method="post" action="<%= isEdit ? '/users/' + user.id : '/users' %>">
+      <label>
+        Email
+        <input name="email" value="<%= user ? user.email : '' %>" required />
+      </label>
+
+      <label>
+        ФИО
+        <input name="fullName" value="<%= user ? user.fullName : '' %>" required />
+      </label>
+
+      <% if (error) { %>
+        <div class="error"><%= error %></div>
+      <% } %>
+
+      <button type="submit"><%= isEdit ? 'Сохранить' : 'Создать' %></button>
+    </form>
+  </body>
+</html>
